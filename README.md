@@ -78,7 +78,7 @@ O laboratório validou a robustez da arquitetura de defesa em camadas e a eficá
     * Continuar com testes de segurança e tuning das regras do WAF.
 
 ### 📂 Conteúdo do Repositório
-* `(./Projeto_hands_on/)`: Relatórios técnicos, executivos e análises de logs detalhadas.
+* [`Projeto_hands_on`](./Projeto_hands_on.pdf): Relatórios técnicos, executivos e análises de logs detalhadas.
 * `./imagens/`: Evidências visuais de todas as etapas do laboratório.
 * `./logs-comandos/`: Logs brutos (JSON) do WAF capturados durante os testes.
 * `./docker-compose.yml`: Arquivo para orquestração do ambiente.
