@@ -1,0 +1,202 @@
+{
+  "transaction": {
+    "client_ip": "192.168.35.11",
+    "time_stamp": "Mon Sep 22 23:13:27 2025",
+    "server_id": "ff4a409c7abe42c5de4147be9075b0ec7ed97346",
+    "client_port": 56258,
+    "host_ip": "192.168.35.30",
+    "host_port": 8080,
+    "unique_id": "175858280793.631705",
+    "request": {
+      "method": "GET",
+      "http_version": 1.1,
+      "uri": "/vulnerabilities/fi/?page=../../../../etc/passwd",
+      "headers": {
+        "Host": "dvwa",
+        "User-Agent": "curl/8.15.0",
+        "Cookie": "security=low",
+        "Accept": "*/*"
+      }
+    },
+    "response": {
+      "body": "",
+      "http_code": 302,
+      "headers": {
+        "Server": "nginx",
+        "Date": "Mon, 22 Sep 2025 23:13:27 GMT",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Pragma": "no-cache",
+        "Set-Cookie": "PHPSESSID=5lg1hfon8grbr0t6uepsskugb2; path=/",
+        "Location": "../../login.php",
+        "Expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+        "Access-Control-Allow-Headers": "*"
+      }
+    },
+    "producer": {
+      "modsecurity": "ModSecurity v3.0.14 (Linux)",
+      "connector": "ModSecurity-nginx v1.0.4",
+      "secrules_engine": "DetectionOnly",
+      "components": [
+        "OWASP_CRS/4.18.0\""
+      ]
+    },
+    "messages": [
+      {
+        "message": "Path Traversal Attack (/../) or (/.../)",
+        "details": {
+          "match": "Matched \"Operator `Rx' with parameter `(?i)(?:[/\\x5c]|%(?:2(?:f|5(?:2f|5c|c(?:1%259c|0%25af))|%46)|5c|c(?:0%(?:[2aq]f|5c|9v)|1%(?:[19p]c|8s|af))|(?:bg%q|(?:e|f(?:8%8)?0%8)0%80%a)f|u(?:221[56]|EFC8|F025|002f)|%3(?:2(?:%(?:%6|4)6|F)|5%%63)|1 (394 characters omitted)' against variable `ARGS:page' (Value: `../../../../etc/passwd' )",
+          "reference": "o28,4v4,48o2,4v30,22",
+          "ruleId": "930100",
+          "file": "/etc/modsecurity.d/owasp-crs/rules/REQUEST-930-APPLICATION-ATTACK-LFI.conf",
+          "lineNumber": "35",
+          "data": "Matched Data: /../ found within ARGS:page: ../../../../etc/passwd",
+          "severity": "2",
+          "ver": "OWASP_CRS/4.18.0",
+          "rev": "",
+          "tags": [
+            "modsecurity",
+            "application-multi",
+            "language-multi",
+            "platform-multi",
+            "attack-lfi",
+            "paranoia-level/1",
+            "OWASP_CRS",
+            "OWASP_CRS/ATTACK-LFI",
+            "capec/1000/255/153/126"
+          ],
+          "maturity": "0",
+          "accuracy": "0"
+        }
+      },
+      {
+        "message": "Path Traversal Attack (/../) or (/.../)",
+        "details": {
+          "match": "Matched \"Operator `Rx' with parameter `(?:(?:^|[\\x5c/;])\\.{2,3}[\\x5c/;]|[\\x5c/;]\\.{2,3}[\\x5c/;])' against variable `REQUEST_URI_RAW' (Value: `/vulnerabilities/fi/?page=../../../../etc/passwd' )",
+          "reference": "o28,4v4,48",
+          "ruleId": "930110",
+          "file": "/etc/modsecurity.d/owasp-crs/rules/REQUEST-930-APPLICATION-ATTACK-LFI.conf",
+          "lineNumber": "68",
+          "data": "Matched Data: /../ found within REQUEST_URI_RAW: /vulnerabilities/fi/?page=../../../../etc/passwd",
+          "severity": "2",
+          "ver": "OWASP_CRS/4.18.0",
+          "rev": "",
+          "tags": [
+            "application-multi",
+            "language-multi",
+            "platform-multi",
+            "attack-lfi",
+            "paranoia-level/1",
+            "OWASP_CRS",
+            "OWASP_CRS/ATTACK-LFI",
+            "capec/1000/255/153/126"
+          ],
+          "maturity": "0",
+          "accuracy": "0"
+        }
+      },
+      {
+        "message": "Path Traversal Attack (/../) or (/.../)",
+        "details": {
+          "match": "Matched \"Operator `Rx' with parameter `(?:(?:^|[\\x5c/;])\\.{2,3}[\\x5c/;]|[\\x5c/;]\\.{2,3}[\\x5c/;])' against variable `ARGS:page' (Value: `../../../../etc/passwd' )",
+          "reference": "o0,3v30,22",
+          "ruleId": "930110",
+          "file": "/etc/modsecurity.d/owasp-crs/rules/REQUEST-930-APPLICATION-ATTACK-LFI.conf",
+          "lineNumber": "68",
+          "data": "Matched Data: ../ found within ARGS:page: ../../../../etc/passwd",
+          "severity": "2",
+          "ver": "OWASP_CRS/4.18.0",
+          "rev": "",
+          "tags": [
+            "application-multi",
+            "language-multi",
+            "platform-multi",
+            "attack-lfi",
+            "paranoia-level/1",
+            "OWASP_CRS",
+            "OWASP_CRS/ATTACK-LFI",
+            "capec/1000/255/153/126"
+          ],
+          "maturity": "0",
+          "accuracy": "0"
+        }
+      },
+      {
+        "message": "OS File Access Attempt",
+        "details": {
+          "match": "Matched \"Operator `PmFromFile' with parameter `lfi-os-files.data' against variable `ARGS:page' (Value: `../../../../etc/passwd' )",
+          "reference": "o12,10v30,22t:utf8toUnicode,t:urlDecodeUni,t:normalizePathWin",
+          "ruleId": "930120",
+          "file": "/etc/modsecurity.d/owasp-crs/rules/REQUEST-930-APPLICATION-ATTACK-LFI.conf",
+          "lineNumber": "99",
+          "data": "Matched Data: etc/passwd found within ARGS:page: ../../../../etc/passwd",
+          "severity": "2",
+          "ver": "OWASP_CRS/4.18.0",
+          "rev": "",
+          "tags": [
+            "modsecurity",
+            "application-multi",
+            "language-multi",
+            "platform-multi",
+            "attack-lfi",
+            "paranoia-level/1",
+            "OWASP_CRS",
+            "OWASP_CRS/ATTACK-LFI",
+            "capec/1000/255/153/126"
+          ],
+          "maturity": "0",
+          "accuracy": "0"
+        }
+      },
+      {
+        "message": "Remote Command Execution: Unix Shell Code Found",
+        "details": {
+          "match": "Matched \"Operator `PmFromFile' with parameter `unix-shell.data' against variable `ARGS:page' (Value: `../../../../etc/passwd' )",
+          "reference": "o12,10v30,22t:cmdLine,t:normalizePath",
+          "ruleId": "932160",
+          "file": "/etc/modsecurity.d/owasp-crs/rules/REQUEST-932-APPLICATION-ATTACK-RCE.conf",
+          "lineNumber": "631",
+          "data": "Matched Data: etc/passwd found within ARGS:page: ../../../../etc/passwd",
+          "severity": "2",
+          "ver": "OWASP_CRS/4.18.0",
+          "rev": "",
+          "tags": [
+            "modsecurity",
+            "application-multi",
+            "language-shell",
+            "platform-unix",
+            "attack-rce",
+            "paranoia-level/1",
+            "OWASP_CRS",
+            "OWASP_CRS/ATTACK-RCE",
+            "capec/1000/152/248/88"
+          ],
+          "maturity": "0",
+          "accuracy": "0"
+        }
+      },
+      {
+        "message": "Inbound Anomaly Score Exceeded (Total Score: 30)",
+        "details": {
+          "match": "Matched \"Operator `Ge' with parameter `5' against variable `TX:BLOCKING_INBOUND_ANOMALY_SCORE' (Value: `30' )",
+          "reference": "",
+          "ruleId": "949110",
+          "file": "/etc/modsecurity.d/owasp-crs/rules/REQUEST-949-BLOCKING-EVALUATION.conf",
+          "lineNumber": "222",
+          "data": "",
+          "severity": "0",
+          "ver": "OWASP_CRS/4.18.0",
+          "rev": "",
+          "tags": [
+            "modsecurity",
+            "anomaly-evaluation",
+            "OWASP_CRS"
+          ],
+          "maturity": "0",
+          "accuracy": "0"
+        }
+      }
+    ]
+  }
+}
