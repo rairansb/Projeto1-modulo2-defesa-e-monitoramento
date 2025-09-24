@@ -81,5 +81,5 @@ O laboratório validou a robustez da arquitetura de defesa em camadas e a eficá
 * [`Projeto_hands_on`](./Projeto_hands_on.pdf): Relatórios técnicos, executivos e análises de logs detalhadas.
 * [`Imagens`](./imagens): Evidências visuais de todas as etapas do laboratório.
 * [`Logs-comandos`](./logs-comandos): Logs brutos (JSON) do WAF capturados durante os testes.
-* [`Doker Compose`](./doker-compose.yml)`: Arquivo para orquestração do ambiente.
+* [`Doker Compose`](./docker-compose.yml)`: Arquivo para orquestração do ambiente.
 
